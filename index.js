@@ -1,18 +1,16 @@
-//variable
-/*
-  имя переменной
-  начинается только с буквы или _ или $
-  латиница, без пробелов, цифры не первые
-  регистрозависимая 
-  camelCase
-  отвечает на вопрос Что в ней
-*/
-let num1; //объявление
-console.log(num1);
-// console.log(num2);
-let num2 = 22;
-console.log(num2);
-num1 = 11; //инициализация
-num1 = 66;
-console.log(num1);
-const num3 = 33;
+let string1 = 'I\'m a teacher';
+console.log(string1,':', typeof string1);
+
+let age = '32';
+
+let price = '   5   ';
+
+
+let num = 8;
+console.log(num,':', typeof num);
+
+let undef = undefined;
+console.log(undef,':', typeof undef);
+
+let nullValue = null;
+console.log(nullValue,':', typeof nullValue);
