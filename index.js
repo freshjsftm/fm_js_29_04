@@ -1,9 +1,18 @@
-//Strict Equality (===)
-//Strict Inequality (!==)
+//Assignment
 
-console.log('10' === 10);
-console.log('10' !== 10);
+let age = 10;
+//age = age + 5*4/2;
+age += 5*4/2;
 
-console.log('10' === 20);
-console.log('10' !== 20);
+let num = 3;
+//num = num * num;
+num *= num;
+
+let num2 = 56;
+num2 /= 2;
+
+let price = 10;
+price = (price+5)*1.03;
+
+
 
