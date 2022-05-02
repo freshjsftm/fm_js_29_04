@@ -1,18 +1,7 @@
-//Logical NOT (!)
-//неявно приводит к логическому типу 
-//и потом выполняет инверсию
-//в результате выполнения будет только логический тип
+// < <= > >=
+console.log(10>10);
+console.log(10>=10);
 
-//ложь это:
-//false
-//null
-//undefined
-//NaN
-//0  +0  -0
-//'' - empty string
+console.log('Abd '<='Abd');
 
-let logic = 'Elon';//true
-let result = !logic;
-console.log(!logic);//!true -> false
-console.log(logic);
-console.log(result);
+console.log(true > false);
