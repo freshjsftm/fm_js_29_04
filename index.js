@@ -1,16 +1,10 @@
-let condition = 'false'-3;
-console.log("value = ", condition, typeof condition);
+let number_1 = '5';
+let number_2 = 4;
+console.log(number_1 - number_2);
 
-if (condition) {
-  console.log("value = ", condition, typeof condition);
-  //только если в кругліх скобках выражение правдиво
-}
+//унарные
+// console.log(+number_1);
+// console.log(-number_1);
+// console.log(number_1);
 
-/*
-false
-undefined
-null
-NaN
-'' //empty string
-0  +0  -0
-*/
+//конкатенация +
