@@ -1,8 +1,14 @@
+// function requestNumberAtUser(){
+//   let number = prompt('enter number', '10');
+// }
 
+//function expression
+const requestNumberAtUser = function(){
+  let number = prompt('enter number', '10');
+}
 
-let str = prompt('Message','default');
+console.log(requestNumberAtUser);
 
-console.log(str);
 
 
 
