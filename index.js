@@ -1,16 +1,16 @@
-//найти периметр квадрат
-//сторона*4
-
+//age>=18
 /**
  * 
- * @param {number} side 
- * @returns {null | number}
+ * @param {number} age 
+ * @returns {boolean}
  */
-const calcPerimetrSquare = function(side=0){
-  if(side<0){
-    return null;
-  }
-  return side*4;
+const isAdult = function(age=0, ADULT=18){
+  return age>=ADULT;
+
+  // if(age<18){
+  //   return false;
+  // }
+  // return true;
 }
-const result = calcPerimetrSquare(8);
+const result = isAdult(18, 21);
 console.log(result);
