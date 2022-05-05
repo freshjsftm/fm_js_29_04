@@ -1,30 +1,32 @@
-//Conditional (ternary) operator
+const userNumber = "22";
+debugger //+prompt('Enter number');
+if (isNaN(userNumber)) {
+  console.log(userNumber, "NAN");
+} else if(userNumber % 5 === 0) {
+  console.log(userNumber, "multiply 5");
+} else if(userNumber % 3 === 0){
+  console.log(userNumber, "multiply 3");
+} else if(userNumber % 2 === 0){
+  console.log(userNumber, "multiply 2");
+} else {
+  console.log(userNumber, "multiply 1");
+}
 
-// //true|false
-// const isEven = function(number=0){
-//   return number%2 === 0;
+console.log("thanks");
+// if (isNaN(userNumber)) {
+//   console.log("NAN");
+// } else {
+//   if (userNumber % 5 === 0) {
+//     console.log("multiply 5");
+//   } else {
+//     if (userNumber % 3 === 0) {
+//       console.log("multiply 3");
+//     } else {
+//       if (userNumber % 2 === 0) {
+//         console.log("multiply 2");
+//       }
+//     }
+//   }
 // }
-
-// //'even'|'odd'
-// const returnEvenOrOdd = function(number=0){
-//   return number%2 === 0 ? 'even' : 'odd';
-// }
-
-// const returnAdalt = function(number=0){
-//   return (number>=18) ? 'adalt' : 'not adalt';
-// }
-
-// const checkAges = function(number = 20) {
-//   (number >= 18) ? 'adult' : 'not adult';
-// }
-
-// console.log(checkAges(prompt()));
-
-const summa = 123456;
-const LIMIT_SUMMA = 10000;
-
-const sale = summa > LIMIT_SUMMA ? 0.1 : 0.02;
-
-//const classInput = isValid ? 'valid' : 'invalid';
 
 
