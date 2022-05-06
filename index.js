@@ -1,16 +1,13 @@
-// let count = 2;
-// //debugger
-// while(count>0){
-//   console.log(count);
-//   count--;
-// }
-
-//debugger
-let count = 0;
 while (true) {
-  count++;
-  if (count > 3){
+  console.log(2);
+  if (true) {
     break;
-  } 
-  console.log(count);
+  }
 }
+
+do {
+  console.log(2);
+  if (true) {
+    break;
+  }
+} while (true);
