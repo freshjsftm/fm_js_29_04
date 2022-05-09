@@ -1,20 +1,24 @@
-const calcFactorial = function(number=1){
-  if(number<0){
-    return null;
-  }
-  if(number>MAX_SAFE_FACTORIAL){
-    return false;
-  }
-  if(number===0 || number===1){
-    return 1;
-  }
-  let result = 1n; //bigint
-  for(let i=1; i<=number; i++){
-    result *= BigInt(i); //result = 1*1*2*3*4*5
-  }
-  return result;
-}
-//bigint*bigint(number)
-//debugger
-console.log(calcFactorial(5));
-console.log(calcFactorial(15));//6 = 1*2*3
+'use strict'; //ES2015
+const cat1 = {   //literal
+  name:'Muha',
+  isMale:false,
+  age:3,
+  breed: 'street',
+  color: 'grey',
+  say:function(){
+    return 'meow';
+  },
+  run:function(){
+    return 'i\'m runing';
+  },
+};
+console.log(cat1);
+console.log(cat1.age)
+cat1.age++;
+console.log(cat1.say());
+console.log(cat1.run())
+cat1.colorEye = 'green';
+console.log(cat1);
+//cat1.colorEye = undefined;
+delete cat1.breed;
+console.log(cat1);
