@@ -1,71 +1,77 @@
-"use strict"; //ES2015
+"use strict";
+// let n = 10;
+// const str1 = 'dsfd\''+n+'sfs';
+// const str2 = `let n = ${n}
+// trenningMath('www',10) = ${trenningMath('www',10)}`;
+// alert(str2);
 
-function User(name = "Test", sname = "Stest", age = 0) {
-  this.name = name;
-  this.sname = sname;
-  this.age = age;
-  this.getFullName = function () {
-    return this.name + " " + this.sname;
-  };
-}
-
-// const user1 = new User("Elena", "Yat", 20);
-// user1.sname = 'Musk';
-// console.log(user1.sname);
-// console.log(user1.getFullName());
-// const user2 = new User("Den", "Shev", 45);
-// const user3 = new User();
-
-const uniqueObject = {
-  prop1:12,
+const logRangeNumber = function (max = 10, min = 1, number = 3) {
+  //проверка на вход
+  if (max < min) {
+    return false;
+  }
+  //выводить числа из диапозона в обратном порядке
+  let i = max;
+  while (i >= min) {
+    //логировать НЕ кратные числу
+    if (i % number === 0) {
+      i--;
+      continue;
+    }
+    console.log(i);
+    i--;
+  }
+  return true;
 };
 
-function Country(name = "USA", population = 330000, area = 3000) {
-  this.name = name;
-  this.population = population;
-  this.area = area;
-  this.getDensity = function () {
-    return this.population / this.area;
-  };
-}
+/*
+2) предлагать пользователю решить арифметический пример до тех пор, пока он его не решит.
++ создать функцию продумать параметры
++ используя параметры, сформировать промпт
++ вычислить пример, который получился из параметров
+- сравнить ваши вычисления и ответ пользователя
+*/
+/**
+ *
+ * @param {number} number1
+ * @param {number} number2
+ * @param {string} operator *|-|+|/
+ * @returns {boolean}
+ */
+const trenningMath = function (number1 = 10, number2 = 2, operator = "+") {
+  //выполнить рефакторинг кода - вынести расчет в функцию
+  //const result = calc(number1, number2, operator);
+  //if(result===null){return false;}
+  if (isNaN(number1 * number2)) {
+    return false;
+  }
+  let result = null; 
+  switch (operator) {
+    case "*":
+      result = number1 * number2;
+      break;
+    case "-":
+      result = number1 - number2;
+      break;
+    case "/":
+      result = number1 / number2;
+      break;
+    case "+":
+      result = number1 + number2;
+      break;
+    default:
+      return false;
+  }
+  while(true){
+    const answerUser = prompt(
+      `${number1} ${operator} ${number2} = `,
+      "your answer"
+    );
+    if(result === Number(answerUser)){
+      return true;
+    }
+  }
+};
 
-// const usa = new Country();
-// console.log(usa);
-// console.log(usa.getDensity());
-
-function Auto(marka = "bmw", maxSpeed = 450) {
-  this.name = marka;
-  this.maxSpeed = maxSpeed;
-  this.speed = 0;
-  this.accelerate = function (value = 10) {
-    if (value < 0) {
-      return this.speed;
-    }
-    this.speed += value;
-    if (this.speed > this.maxSpeed) {
-      return (this.speed = this.maxSpeed);
-    }
-    return this.speed;
-  };
-  this.decelerate = function (value = 10) {
-    if (value < 0) {
-      return this.speed;
-    }
-    this.speed -= value;
-    if (this.speed <= 0) {
-      return (this.speed = 0);
-    }
-    return this.speed;
-  };
-  this.stop = function () {
-    return (this.speed = 0);
-  };
-}
-const auto = new Auto();
-console.log(auto);
-console.log(auto.accelerate(70));
-console.log(auto.accelerate(70));
-console.log(auto.speed);
-console.log(auto.decelerate(20));
-console.log(auto.speed);
-console.log(auto.stop());
+const message = trenningMath() ? 'win' : 'error';
+alert(message);
