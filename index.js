@@ -1,13 +1,18 @@
 'use strict';
 
-const pr1 = 12;
-const pr2 = 12;
+const object1 = {};
+const object2 = new Object();
+const object3 = Object();
 
-console.log(pr1===pr2);
+console.log(object1);
+console.log(object2);
+console.log(object3);
 
-const ob1 = {};
-const ob2 = {};
-const newOb = ob1;//копирование по ссылке
-console.log(ob1===ob2);//false
-console.log(ob1===newOb);//true
-newOb.prop = 12;
+function MyObject(){
+  if(!new.target){
+    return new MyObject();
+  }
+}
+
+const obj1 = MyObject();// create object without new
+console.log(obj1);
