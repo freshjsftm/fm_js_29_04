@@ -1,19 +1,23 @@
-"use strict"; //ES6 ES2015
-//декларация
-function test1(){
-  console.log(this);
-}
-//выражение
-const test2 = function(){
-  console.log(this);
-}
-//стрелка
-const test3 = ()=>{
-  console.log(this);  
-}
+"use strict"; 
 
+const site = {
+  title:'Green site', ///
+  headers:['Title 1', 'About us', 'Portfolio'],
+  showHeaders(){
+    //console.log(this)
+    this.headers.forEach((header)=>{
+      //console.log(this)
+      console.log(header,'|', this.title);
 
-test1();
-test2();
-test3();
+      const test = ()=>{
+        console.log(this)
+      }
+      test();
+
+    });
+  }
+};
+
+site.showHeaders();
+
 
