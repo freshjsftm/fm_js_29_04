@@ -1,7 +1,6 @@
 "use strict";
 
 class User{
-  #age; //декларация приватного свойства - обратиться можно только в классе
   /**
    * 
    * @param {string} name   Name
@@ -9,27 +8,21 @@ class User{
    * @param {number} age range must be: 0 ... 150
    */
   constructor(name, sname, age){
-    if(typeof age !== 'number'){
-      throw new TypeError('value must be number');
-    }
-    if(age<0 || age>MAX_AGE){
-      throw new RangeError(`range must be: 0 ... ${MAX_AGE}`);
-    }
     this.name = name;
     this.sname = sname;
-    this.#age = age;
+    this.age = age; //setter
   }
-  getAge(){
-    return this.#age;
+  get age(){
+    return this._age;
   }
-  setAge(age){
+  set age(age){
     if(typeof age !== 'number'){
       throw new TypeError('value must be number');
     }
     if(age<0 || age>MAX_AGE){
       throw new RangeError(`range must be: 0 ... ${MAX_AGE}`);
     }
-    this.#age = age;
+    this._age = age;
   }
   getFullName(){
     return `${this.name} ${this.sname}`;
@@ -41,9 +34,9 @@ class User{
 
 const userNew = new User('Tim','Le',55);
 const userNew2 = new User('Tom','Bom', 25);
-userNew.setAge(12);
-console.log(userNew.getAge());
-console.log(userNew2);
+userNew.age = 44;
+console.log(userNew.age);
+console.log(userNew);
 
 
 
