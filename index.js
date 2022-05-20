@@ -4,46 +4,41 @@
 - инкапсуляция
 - полифомирзм
 */
-class Animal{
-  #amountLegs; 
-  constructor(type,amountLegs){
-
-    this.type = type;
-    /*
-    if(typeof type !== 'string'){
-      throw new TypeError('type must be string');
-    }
-    if(type===''){
-      throw new Error('empty string');
-    }
-    this._type = type;
-    */
-
-    this.#amountLegs = amountLegs;
+class User{
+  #name;
+  #sname;
+  constructor(name, sname, age) {
+    this.#name = name;
+    this.#sname = sname;
+    this.age = age; //setter
   }
-  get type(){
-    return this._type;
+  get age() {
+    return this._age;
   }
-  set type(type){
-    if(typeof type !== 'string'){
-      throw new TypeError('type must be string');
+  set age(age) {
+    if (typeof age !== "number") {
+      throw new TypeError("value must be number");
     }
-    if(type===''){
-      throw new Error('empty string');
+    if (age < 0 || age > MAX_AGE) {
+      throw new RangeError(`range must be: 0 ... ${MAX_AGE}`);
     }
-    this._type = type;
+    this._age = age;
   }
-  eat(){
-    return `${this._type} is eating`;
-  };
-  say(word){
-    return `${this._type} say ${word}`;
+  getfullName() {
+    return `${this.#name} ${this.#sname}`;
   }
 };
-
-const cat = new Animal('cat', 4);
-//cat.type = 'lion';
-//cat.#amountLegs;
-console.log(cat.say('meow'));
-const dog = new Animal('dog', 4);
-const man = new Animal('man', 2);
+class Moderator extends User{
+  constructor(name, sname, age, rights){
+    super(name, sname, age);//ссылка на конструктор родителя
+    this.rights = rights;
+  }
+  deleteMessage(id){
+    return `${this.getfullName()} delete message ${id}`;
+  }
+  sayName(){
+    return `${this.#name}`;
+  }
+};
+const mod1 = new Moderator('Elon', 'Musk', 50, {rule:1});
+console.log(mod1.deleteMessage(2))
