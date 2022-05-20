@@ -5,12 +5,11 @@
 - полифомирзм
 */
 class User{
-  #name;
-  #sname;
   constructor(name, sname, age) {
-    this.#name = name;
-    this.#sname = sname;
+    this._name = name;
+    this._sname = sname;
     this.age = age; //setter
+    this.isBan = false;
   }
   get age() {
     return this._age;
@@ -25,7 +24,7 @@ class User{
     this._age = age;
   }
   getfullName() {
-    return `${this.#name} ${this.#sname}`;
+    return `${this._name} ${this._sname}`;
   }
 };
 class Moderator extends User{
@@ -37,8 +36,75 @@ class Moderator extends User{
     return `${this.getfullName()} delete message ${id}`;
   }
   sayName(){
-    return `${this.#name}`;
+    return `${this._name}`;
   }
 };
-const mod1 = new Moderator('Elon', 'Musk', 50, {rule:1});
-console.log(mod1.deleteMessage(2))
+class Admin extends Moderator{
+  constructor(name, sname, age, rights, prop){
+    super(name, sname, age, rights);
+    this.prop = prop;
+  }
+  // ban(user){
+  //   if(user instanceof User){
+  //     user.isBan = true;
+  //   }
+  //   throw new TypeError('not user!!!')
+  // }
+  // unBan(user){
+  //   if(user instanceof User){
+  //     user.isBan = false;
+  //   }
+  //   throw new TypeError('not user!!!')
+  // }
+  toggleBan(user){
+    if(user instanceof User){
+      return user.isBan = !user.isBan;
+    }
+    throw new TypeError('not user!!!')  
+  }
+};
+const user = new User('Rob', 'Bob', 24);
+const admin = new Admin('Elon', 'Musk', 50, {rule:5}, 789);
+console.log(admin.getfullName());
+console.log(admin.toggleBan(user));
+
+// const mod1 = new Moderator('Elon', 'Musk', 50, {rule:1});
+// console.log(mod1.deleteMessage(2))
+// console.log(mod1.sayName())
+
+
+class Squirell { 
+  constructor(name, color) { 
+    this.name = name; 
+    this.color = color; 
+  } 
+  jump() { 
+    return `${this.name} is jumping`; 
+  } 
+}; 
+ 
+ 
+class FlySquirell extends Squirell{ 
+  constructor(name, color, distance) { 
+    super(name, color); 
+    this.distance = distance; 
+  } 
+  fly() { 
+    return `${this.name} is flying ${this.distance}m.`; 
+  } 
+} 
+ 
+class MagicSquirell extends FlySquirell { 
+  constructor(name, color, distance, songs) { 
+    super(name, color, distance); 
+    this.songs = songs; 
+  } 
+  dance() { 
+    return `${this.name} is dancing`; 
+  } 
+  sing() { 
+     return `songs: ${this.songs.join(', ')}.`;
+  } 
+}
+
+const mb = new MagicSquirell('belka','rainbow',2000,['p1','p2']);
