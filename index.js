@@ -1,19 +1,16 @@
 "use strict";
 
-// {}
-// new Object()
-// Object()
+//class Test{};
+//const Test = class {};
 
-const obj = {
-  _prop:88,
-  get prop(){
-    return this._prop;
-  },
-  set prop(v){
-    this._prop = v;
-  },
-}
+// function test(a,b,...rest){
+//   return class{
+//     constructor(prop){
+//       this.prop = prop;
+//     }
+//   };
+// }
+// const TestClass = test(1,2,3,4);
+// const obj = new TestClass(4);
 
-//console.log(obj._prop) //НЕЛЬЗЯ!!!
-obj.prop = 123;
-console.log(obj.prop)
+// console.dir(TestClass);

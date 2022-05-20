@@ -79,3 +79,4 @@ class Woker {
 }
 const woker = new Woker("Elon", "Musk", 100, 5);
 console.log(woker.getSalary())
+woker.days = 1;
