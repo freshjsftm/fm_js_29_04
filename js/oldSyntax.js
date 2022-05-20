@@ -5,6 +5,7 @@ function UserOld(name, sname, age){
   this.sname = sname;
   this.age = age;
 }
+
 UserOld.qwerty = 'qwerty';
 UserOld.method = function(){};
 function UserOldPrototype(){

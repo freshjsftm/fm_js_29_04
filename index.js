@@ -1,16 +1,49 @@
 "use strict";
+/*
+- наследование
+- инкапсуляция
+- полифомирзм
+*/
+class Animal{
+  #amountLegs; 
+  constructor(type,amountLegs){
 
-//class Test{};
-//const Test = class {};
+    this.type = type;
+    /*
+    if(typeof type !== 'string'){
+      throw new TypeError('type must be string');
+    }
+    if(type===''){
+      throw new Error('empty string');
+    }
+    this._type = type;
+    */
 
-// function test(a,b,...rest){
-//   return class{
-//     constructor(prop){
-//       this.prop = prop;
-//     }
-//   };
-// }
-// const TestClass = test(1,2,3,4);
-// const obj = new TestClass(4);
+    this.#amountLegs = amountLegs;
+  }
+  get type(){
+    return this._type;
+  }
+  set type(type){
+    if(typeof type !== 'string'){
+      throw new TypeError('type must be string');
+    }
+    if(type===''){
+      throw new Error('empty string');
+    }
+    this._type = type;
+  }
+  eat(){
+    return `${this._type} is eating`;
+  };
+  say(word){
+    return `${this._type} say ${word}`;
+  }
+};
 
-// console.dir(TestClass);
+const cat = new Animal('cat', 4);
+//cat.type = 'lion';
+//cat.#amountLegs;
+console.log(cat.say('meow'));
+const dog = new Animal('dog', 4);
+const man = new Animal('man', 2);
