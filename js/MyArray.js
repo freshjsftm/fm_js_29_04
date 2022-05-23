@@ -49,13 +49,13 @@ function MyArrayProptotype() {
   }
 }
 //конструктор объекта с данными
-function MyArray() {
+function MyArray() { //object
   this.length = 0;
   for (let i = 0; i < arguments.length; i++) {
     this.push(arguments[i]);
   }
 }
-MyArray.isMyArray = function(obj){
+MyArray.isMyArray = function(obj){ //property MyArray
   return obj instanceof MyArray;
 }
 
