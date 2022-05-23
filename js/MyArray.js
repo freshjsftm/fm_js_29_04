@@ -55,13 +55,17 @@ function MyArray() {
     this.push(arguments[i]);
   }
 }
-
-function log(n){
-  console.log(n*n);
+MyArray.isMyArray = function(obj){
+  return obj instanceof MyArray;
 }
 
 MyArray.prototype = new MyArrayProptotype();
 
+
+
+function log(n){
+  console.log(n*n);
+}
 const myArray = new MyArray(1, 2, 3, 8, 5);//5
 //myArray.forEach(log);
 const newArray = myArray.filter(function(elem){
