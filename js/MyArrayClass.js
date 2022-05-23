@@ -100,4 +100,4 @@ const myArray1 = new MyArray(
   ),
   1
 );
-console.log(myArray1.flat(1.9));
+//console.log(myArray1.flat(1.9));
