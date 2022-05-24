@@ -105,7 +105,7 @@ class MyArray {
 const myArray1 = new MyArray(5,2,7,8);
 const myArray2 = new MyArray(...myArray1,...myArray1);
 
-console.log(...myArray1);
-for (const elem of myArray1) {
-  console.log(elem)
-}
+// console.log(...myArray1);
+// for (const elem of myArray1) {
+//   console.log(elem)
+// }
