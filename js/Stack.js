@@ -1,14 +1,13 @@
 'use strict';
 class Stack{
-  constructor(maxSize=5, ...args){//args -> array
+  constructor(maxSize=5, ...args){
     this._size = 0;
     this._maxSize = maxSize;
-    //console.log(args[Symbol.iterator]().next().value);
     for (const argument of args) {
-      //console.log(argument);
       this.push(argument);
     }
   }
+  //дописать сеттер и геттер для this._maxSize
   get size(){
     return this._size;
   }
@@ -16,8 +15,6 @@ class Stack{
     return this._size === 0;
   }
   push(argument){
-    //const index = '_'+this.size;
-    //this[index] = argument;
     if(this.size >= this._maxSize){
       throw new RangeError('stack overflow!');
     }
@@ -32,8 +29,6 @@ class Stack{
     if(this.isEmpty){
       return;
     }
-    //const deletedElement = this.pick();
-    //delete this.pick();
     const deletedElement = this[`_${this.size-1}`];
     delete this[`_${this.size-1}`];
     this._size--;
@@ -41,5 +36,5 @@ class Stack{
   }
 };
 
-const stack1 = new Stack(undefined,8,12,7,4);//
+const stack1 = new Stack(undefined,8,12,7,4);
 console.log(stack1);
