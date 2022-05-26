@@ -3,9 +3,9 @@
 class LinkedListIterator{
   constructor(list){
     this.collection = list;
-    this.curentElement = null;
+    this.curentElement = null; // 1 step
   }
-  next(){
+  next(){                     //head                  //tail.next=null
     this.curentElement = this.curentElement ? this.curentElement.next : this.collection.head;//
     return {
       value: this.curentElement ? this.curentElement.value : undefined, //
@@ -30,7 +30,7 @@ class ListItem{
 };
 
 class LinkedList{
-  constructor(...args){ //args->array
+  constructor(...args){ //rest -> args = [1, true, null, 'qwe', 5];
     this.length = 0;
     this.head = null;
     this.tail = null;
@@ -50,13 +50,24 @@ class LinkedList{
     }
     return ++this.length;
   }
+  pop(){
+    if(this.length === 1){
+      this.head = null;
+      this.tail = null;
+      this.length = 0;
+    }
+    else{
+      this.tail = this.tail.prev;
+      this.tail.next = null;
+    }
+  }
   [Symbol.iterator](){
     return new LinkedListIterator(this);
   }
 };
 
-const list = new LinkedList(1,true,null,'qwe',5);
-console.log(...list); //
-for (const item of list) {
-  console.log(item)
-}
+const list = new LinkedList(1, true, null, 'qwe', 5);
+// console.log(...list); //
+// for (const item of list) {
+//   console.log(item)
+// }
