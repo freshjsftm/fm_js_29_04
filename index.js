@@ -42,27 +42,20 @@ const options = {
 }
 
 const checkSequence = (str, options) => { 
-  const brackets = options.brackets; //{'(':')','{':'}','[':']',}
-  //тут надо собрать все значения объекта brackets в массив
-  const closesBrackets = Object.values(brackets); //[')','}',']']
-  const stack = new Stack();
-  for (const symbol of str) {  //'2'
-    if(brackets[symbol] !== undefined){ //brackets[')']=>undefined
-      stack.push(symbol);               //'('
+  const brackets = options.brackets;
+  const closesBrackets = Object.values(brackets); 
+  const stack = new Stack(str.length);
+  for (const symbol of str) {  
+    if(brackets[symbol] !== undefined){ 
+      stack.push(symbol);               
       continue;
     }
-    // if(stack.isEmpty){ 
-    //   return false;
-    // }
-    //const lastOfStack = stack.pick(); //'('
-    const correctSymbol = brackets[stack.pick()];//')','}',']'
-    if(symbol === correctSymbol){ //')'
+    if(symbol === brackets[stack.pick()]){ 
       stack.pop();
     }else if(closesBrackets.includes(symbol)){ 
-      //тут надо дать возможность пропускать не скобки
       return false;
     }
   }
   return stack.isEmpty;
 }
-console.log(checkSequence('{[(2+5)*]8}', options));
+console.log(checkSequence('{[[(2+5)]*]8}', options));
