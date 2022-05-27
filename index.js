@@ -35,20 +35,20 @@ const arrKeysDict = [...iterKeys];
 
 const arrValuesDict = [...dictionary.values()];
 
-const obj7 = {7:7};
-const key = obj7; //link
 
-const mySet = new Set();
-mySet.add(7);
-mySet.add(7);
-mySet.add(7);
-mySet.add('7');
-mySet.add(obj7); //link
-// mySet.add([7]);  //link
-mySet.add({7:7}); //link
-// mySet.add([7]); //link
-mySet.add(key);
+const arr1 = [1,2,3,5,9,96,3,5,1,2];
+const arr2 = [1,8,3,5,9,967];
+const arr3 = [...arr1, ...arr2];
 
-console.log(mySet.has({7:7})) //false
-console.log(mySet.has(obj7)) //true
+const mySet = new Set([...arr1, ...arr2]);
+
+//const arrUnique = [...mySet];
+const arrUnique = [...new Set([...arr1, ...arr2])];
+
+const arrValuesSet = [...mySet.values()];
+// const arrKeysSet = [...mySet.keys()];
+
+
 console.log(mySet)
+
+
