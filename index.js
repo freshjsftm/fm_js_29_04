@@ -17,25 +17,21 @@ compare('love', 'move'); //false
   - если по размеру одинаковые:
     проходимся по ключам одной мапы и сравниваем значения у соответствующих ключей второй мапы
 */
+function createMap(str){
+  const mapStr = new Map();
+  for (const letter of str) { 
+    if(mapStr.has(letter)){  
+      const value = mapStr.get(letter);
+      mapStr.set(letter, value+1);
+    } else{
+      mapStr.set(letter, 1);
+    }
+  }
+  return mapStr;
+}
 function compare(str1, str2){
-  const mapStr1 = new Map();
-  for (const letter of str1) { //letter->key
-    if(mapStr1.has(letter)){  //t
-      const value = mapStr1.get(letter);//1
-      mapStr1.set(letter, value+1);//t->2
-    } else{
-      mapStr1.set(letter, 1);
-    }
-  }
-  const mapStr2 = new Map();
-  for (const letter of str2) { //letter->key
-    if(mapStr2.has(letter)){
-      const value = mapStr2.get(letter);
-      mapStr2.set(letter, value+1);
-    } else{
-      mapStr2.set(letter, 1);
-    }
-  }
+  const mapStr1 = createMap(str1);
+  const mapStr2 = createMap(str2);
   if(mapStr1.size!==mapStr2.size){
     return false;
   }
